@@ -1,0 +1,4 @@
+pamps.egg-info
+.venv
+.secrets.toml
+pamps/__pycache__/*

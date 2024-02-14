@@ -1,0 +1,60 @@
+## creating a virtual env
+python -m venv .venv
+
+## to activate the virtual env
+source .venv/bin/activate
+
+## to check if you're in the venv
+which python
+or
+python -m site
+
+## to check python version
+python -V
+or 
+python --version
+
+## Always that you create a venv 
+## the first thing to do is upgrade pip to take tha last version
+pip install --upgrade pip
+
+## install the requirements
+pip install -r requirements-dev.txt
+
+## list the libraries
+pip list
+
+## Starting a git repository
+git init
+
+## Copy the content of create_dirs.txt file
+## Put in a linux terminal e press enter
+## It'll create all structure of the project (dirs and files)
+
+# Make a tree of the directory
+tree -a --dirsfirst -L 3 -I '.git|.venv'
+
+## Create a requirements.in with all libraries 
+## the program need to works in PROD enviroment
+
+## Once you create a requirements.in, the command pip-compile
+## gets the latest version of each library and creates a
+## requirements.txt which you'll use in PROD enviroment
+pip-compile requirements.in
+
+
+## Instalação
+## O nosso objetivo é instalar a aplicação dentro do container, 
+## porém é recomendável que instale também no ambiente local 
+## pois desta maneira auto complete do editor irá funcionar.
+## o comando "pip install -e ." procura um arquivo setup.py 
+## ou um arquivo pyproject.toml na raiz do projeto
+## Ele faz a instalação de mode editável (ou seja, o pip 
+## detecta as alterações que estão sendo realizadas e não
+## é necessário instalar novamente)
+pip install -e .
+
+
+
+
+
