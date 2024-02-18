@@ -2,3 +2,6 @@ pamps.egg-info
 .venv
 .secrets.toml
 pamps/__pycache__/*
+pamps/models/__pycache__/*
+migrations/__pycache__/*
+migrations/versions/__pycache__/*
