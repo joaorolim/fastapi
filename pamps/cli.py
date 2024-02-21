@@ -7,7 +7,6 @@ from .config import settings
 from .db import engine
 from .models import User
 
-from pamps.security import HashedPassword
 
 main = typer.Typer(name="Pamps CLI")
 
@@ -55,10 +54,8 @@ def user_list():
 def create_user(email: str, username: str, password: str):
     """Create user"""
 
-    hashed_password = HashedPassword(password)
-
     with Session(engine) as session:
-        user = User(email=email, username=username, password=hashed_password)
+        user = User(email=email, username=username, password=password)
         session.add(user)
         session.commit()
         session.refresh(user)

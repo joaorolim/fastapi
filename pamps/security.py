@@ -26,6 +26,7 @@ class HashedPassword(str):
     def __new__(cls, plain_text):
         # converte para string
         plain_text = str(plain_text)
+        # print("3-Received plain_text:", plain_text) 
 
         # Ao criar uma instância, geramos o hash da senha em texto simples
         hashed_password = get_password_hash(plain_text)

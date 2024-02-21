@@ -5,3 +5,4 @@ pamps/__pycache__/*
 pamps/models/__pycache__/*
 migrations/__pycache__/*
 migrations/versions/__pycache__/*
+pamps/routes/__pycache__/*
