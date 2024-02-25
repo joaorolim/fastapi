@@ -1,8 +1,13 @@
 """User related data models"""
-from typing import Optional
-from sqlmodel import Field, SQLModel
+from typing import Optional, List
+from sqlmodel import Field, SQLModel, Relationship
 from pamps.security import HashedPassword
 from pydantic import BaseModel
+from typing import TYPE_CHECKING
+
+
+if TYPE_CHECKING:
+    from pamps.models.post import Post
 
 
 class User(SQLModel, table=True):
@@ -14,6 +19,9 @@ class User(SQLModel, table=True):
     avatar: Optional[str] = None
     bio: Optional[str] = None
     password: str
+    # it populates the .user attribute on the Post Model
+    posts: List["Post"] = Relationship(back_populates="user")
+
 
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
@@ -32,6 +40,7 @@ class User(SQLModel, table=True):
             # print("2.2-Received obj:", obj) 
             obj.__dict__["password"] = HashedPassword(obj.__dict__["password"])
         return super().model_validate(obj)
+    
 
         
 class UserResponse(BaseModel):
