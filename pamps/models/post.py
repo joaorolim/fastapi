@@ -61,5 +61,6 @@ class PostRequest(BaseModel):
     text: str
 
     class Config:
-        extra = Extra.allow
+        # extra = Extra.allow
+        extra = 'allow'
         arbitrary_types_allowed = True
